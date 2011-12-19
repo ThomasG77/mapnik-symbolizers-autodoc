@@ -1,0 +1,152 @@
+PolygonPatternSymbolizers
+|parameter|default-value|doc|range|api|default-meaning|type|css|
+|---------|-------------|---|-----|---|---------------|----|---|
+|gamma|1|Level of antialiasing of polygon pattern edges|0-1|gamma|fully antialiased|float|polygon-pattern-gamma|
+|meta-output|||||No MetaWriter Output|string|polygon-pattern-meta-output|
+|alignment|local|Specify whether to align pattern fills to the layer or to the map.||||local,global|polygon-pattern-alignment|
+|file||Image to use as a repeated pattern fill within a polygon||||uri|polygon-pattern-file|
+|meta-writer||||||string|polygon-pattern-meta-writer|
+
+PolygonSymbolizers
+|parameter|default-value|doc|range|api|default-meaning|type|availability|css|
+|---------|-------------|---|-----|---|---------------|----|------------|---|
+|fill-opacity|1||||opaque|float||polygon-opacity|
+|meta-output|||||No MetaWriter Output|string||polygon-meta-output|
+|meta-writer|||||No MetaWriter specified|string||polygon-meta-writer|
+|gamma|1|Level of antialiasing of polygon edges|0-1|gamma|fully antialiased|float|0.7.0|polygon-gamma|
+|fill|rgba(128,128,128,1)|Fill color to assign to a polygon||fill|gray and fully opaque (alpha = 1), same as rgb(128,128,128)|color|0.5.1|polygon-fill|
+
+RasterSymbolizers
+|parameter|default-meaning|type|css|default-value|
+|---------|---------------|----|---|-------------|
+|opacity|opaque|float|raster-opacity|1|
+|scaling||fast,bilinear,bilinear8,bicubic,spline16,gaussian,lanczos|raster-scaling||
+|mode||normal,grain_merge,grain_merge2,multiply,multiply2,divide,divide2,screen,hard_light|raster-mode|normal|
+
+TextSymbolizers
+|parameter|default-value|doc|required|serialization|default-meaning|type|validate|css|
+|---------|-------------|---|--------|-------------|---------------|----|--------|---|
+|halo-fill|#FFFFFF|Specifies the color of the halo around the text.|||white|color||text-halo-fill|
+|halo-radius|0|Specify the radius of the halo in pixels|||no halo|float||text-halo-radius|
+|text-ratio||Define the amount of text (of the total) present on successive lines when wrapping occurs||||none||text-ratio|
+|justify-alignment|center|Set the text alignment.||||left,right,center||text-align|
+|character-spacing|0|Horizontal spacing adjustment between characters in pixels||||float||text-character-spacing|
+|fill|#000000|Specifies the color for the text||||color||text-fill|
+|wrap-character| |Use this character instead of a space to wrap long text.||||string||text-wrap-character|
+|label-position-tolerance||||||float||text-label-position-tolerance|
+|vertical-alignment|middle|Position of label relative to point position.|||Default affected by value of dy; "bottom" for dy>0, "top" for dy<0.|top,middle,bottom||text-vertical-alignment|
+|size|10|Text size in pixels||||float||text-size|
+|avoid-edges||Tell positioning algorithm to avoid labeling near intersection edges.||||boolean||text-avoid-edges|
+|opacity|1.0|A number from 0 to 1 specifying the opacity for the text|||Fully opaque|float||text-opacity|
+|wrap-width||Length of a chunk of text in characters before wrapping text||||float||text-wrap-width|
+|spacing||Distance between repeated text labels on a line||||float||text-spacing|
+|dx|0|Displace text by fixed amount, in pixels, +/- along the X axis.  A positive value will shift the text right||||float||text-dx|
+|dy|0|Displace text by fixed amount, in pixels, +/- along the Y axis.  A positive value will shift the text down||||float||text-dy|
+|allow-overlap|False||||do not allow overlap|boolean||text-allow-overlap|
+|max-char-angle-delta|none|If present, the maximum angle change, in degrees, allowed between adjacent characters in a label.  This will stop label placement around sharp corners.||||float||text-max-char-angle-delta|
+|meta-output|||||No MetaWriter Output|string||text-meta-output|
+|minimum-path-length|0|Place labels only on paths longer than this value.|||place labels on all paths|float||text-min-path-length|
+|placement|point|||||point,line,vertex,interior||text-placement|
+|name||Value to use for a text label. Data columns are specified using brackets like [column_name]|True|content||string||text-name|
+|minimum-padding||||||float||text-min-padding|
+|text-transform|none|Transform the case of the characters||||none,uppercase,lowercase,capitalize||text-transform|
+|meta-writer||||||string||text-meta-writer|
+|minimum-distance||||||float||text-min-distance|
+|line-spacing|0|Vertical spacing adjustment between lines in pixels||||float||text-line-spacing|
+|face-name||Font name and style to render a label in|True|||string|font|text-face-name|
+|placement-type|dummy|Re-position and/or re-size text to avoid overlaps. "simple" for basic algorithm (using text-placements string,) "dummy" to turn this feature off.||||dummy,simple||text-placement-type|
+|placements||If "placement-type" is set to "simple", use this "POSITIONS,[SIZES]" string. See TextSymbolizer docs for format.||||string||text-placements|
+
+PointSymbolizers
+|parameter|doc|default-meaning|type|css|default-value|
+|---------|---|---------------|----|---|-------------|
+|opacity|A value from 0 to 1 to control the opacity of the point|Fully opaque|float|point-opacity|1.0|
+|placement|||centroid,interior|point-placement|centroid|
+|ignore-placement|value to control whether the placement of the feature will prevent the placement of other features|do not store the bbox of this point in the collision detector cache|boolean|point-ignore-placement|False|
+|transform|SVG transformation definition|No transformation|string|point-transform||
+|meta-writer|||string|point-meta-writer||
+|file|Image file to represent a point||uri|point-file||
+|allow-overlap||do not allow overlap|boolean|point-allow-overlap|False|
+|meta-output||No MetaWriter Output|string|point-meta-output||
+
+BuildingSymbolizers
+|parameter|default|type|css|
+|---------|-------|----|---|
+|height|0|float|building-height|
+|fill-opacity|1.0|float|building-fill-opacity|
+|fill|#FFFFFF|color|building-fill|
+
+MarkersSymbolizers
+|parameter|doc|default-meaning|type|css|default-value|
+|---------|---|---------------|----|---|-------------|
+|opacity||opaque|float|marker-opacity|1|
+|placement|||point,line|marker-placement||
+|max-error|||float|marker-max-error||
+|stroke-opacity||opaque|float|marker-line-opacity|1|
+|spacing|Space between repeated labels||float|marker-spacing||
+|transform|||string|marker-transform||
+|meta-writer|||string|marker-meta-writer|none|
+|height|||float|marker-height||
+|width|||float|marker-width||
+|stroke|||color|marker-line-color||
+|file|||uri|marker-file||
+|allow-overlap||do not allow overlap|boolean|marker-allow-overlap|False|
+|marker-type|||arrow,ellipse|marker-type||
+|stroke-width|||float|marker-line-width||
+|meta-output||No MetaWriter Output|string|marker-meta-output||
+|fill|||color|marker-fill||
+
+LinePatternSymbolizers
+|parameter|doc|default-meaning|type|css|default-value|
+|---------|---|---------------|----|---|-------------|
+|meta-output||No MetaWriter Output|string|line-pattern-meta-output||
+|meta-writer|||string|line-pattern-meta-writer||
+|file|An image file to be repeated and warped along a line||uri|line-pattern-file||
+
+LineSymbolizers
+|parameter|default-value|doc|range|api|default-meaning|type|availability|css|
+|---------|-------------|---|-----|---|---------------|----|------------|---|
+|stroke-linejoin|miter|The behavior of lines when joining||||miter,round,bevel||line-join|
+|stroke-gamma|1|Level of antialiasing of stroke line|0-1|gamma|fully antialiased|float|2.0.0|line-gamma|
+|stroke-opacity|1|The opacity of a line|||opaque|float||line-opacity|
+|meta-writer||||||string||line-meta-writer|
+|stroke|rgba(0,0,0,1)|The color of a drawn line|||black and fully opaque (alpha = 1), same as rgb(0,0,0)|color||line-color|
+|stroke-linecap|butt|The display of line endings||||butt,round,square||line-cap|
+|stroke-dasharray|none|A pair of length values [a,b], where (a) is the dash length and (b) is the gap length respectively. More than two values are supported for more complex patterns.|||solid line|numbers||line-dasharray|
+|rasterizer|full|Exposes an alternate AGG rendering method that sacrifices some accuracy for speed.||||full,fast||line-rasterizer|
+|stroke-dash-offset|none|valid parameter but not currently used in renderers|||solid line|numbers||line-dash-offset|
+|stroke-width|1|The width of a line in pixels||||float||line-width|
+|meta-output|||||No MetaWriter Output|string||line-meta-output|
+
+ShieldSymbolizers
+|parameter|default-value|default|doc|required|default-meaning|type|validate|css|
+|---------|-------------|-------|---|--------|---------------|----|--------|---|
+|halo-fill|#FFFFFF||Specifies the color of the halo around the text.||white|color||shield-halo-fill|
+|halo-radius|0||Specify the radius of the halo in pixels||no halo|float||shield-halo-radius|
+|file|none||Image file to render behind the shield text|||uri||shield-file|
+|character-spacing|0||Horizontal spacing between characters (in pixels). Currently works for point placement only, not line placement.|||float||shield-character-spacing|
+|size|||The size of the shield text in pixels|||float||shield-size|
+|wrap-character| ||Use this character instead of a space to wrap long names.|||string||shield-wrap-character|
+|shield-dy|0||Displace shield by fixed amount, in pixels, +/- along the Y axis.  A positive value will shift the text down|||float||shield-dy|
+|shield-dx|0||Displace shield by fixed amount, in pixels, +/- along the X axis.  A positive value will shift the text right|||float||shield-dx|
+|horizontal-alignment||middle|The shield's horizontal alignment from its centerpoint|||string||shield-horizontal-alignment|
+|fill|||The color of the shield text|||color||shield-fill|
+|avoid-edges||False|Tell positioning algorithm to avoid labeling near intersection edges.|||boolean||shield-avoid-edges|
+|opacity|1||(Default 1.0) - opacity of the image used for the shield|||float||shield-opacity|
+|text-opacity|1||(Default 1.0) - opacity of the text placed on top of the shield|||float||shield-text-opacity|
+|wrap-width|0||Length before wrapping long names.|||float||shield-wrap-width|
+|spacing|0||The spacing between repeated occurrences of the same shield on a line|||float||shield-spacing|
+|no-text||false|Whether the shield should make room for a text label.|||boolean||shield-no-text|
+|dx|0||Displace text within shield by fixed amount, in pixels, +/- along the X axis.  A positive value will shift the text right|||float||shield-text-dx|
+|dy|0||Displace text within shield by fixed amount, in pixels, +/- along the Y axis.  A positive value will shift the text down|||float||shield-text-dy|
+|justify-alignment||middle|Define how text in a shield's label is justified|||string||shield-justify-alignment|
+|meta-output|||||No MetaWriter Output|string||shield-meta-output|
+|placement|point|||||point,line,vertex,interior||shield-placement|
+|name|||Value to use for a shield"s text label. Data columns are specified using brackets like [column_name]|True||string||shield-name|
+|minimum-padding||||||float||shield-min-padding|
+|text-transform|none||Transform the case of the characters|||none,uppercase,lowercase,capitalize||shield-text-transform|
+|meta-writer||||||string||shield-meta-writer|
+|minimum-distance|0||Minimum distance to the next shield symbol, not necessarily the same shield.|||float||shield-min-distance|
+|line-spacing|||Vertical spacing between lines of multiline labels (in pixels)|||float||shield-line-spacing|
+|face-name|||Font name and style to use for the shield text|True||string|font|shield-face-name|
+
