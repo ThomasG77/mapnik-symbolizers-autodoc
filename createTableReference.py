@@ -23,18 +23,20 @@ symbolizersHeaders = []
 for i,j in reference.iteritems():
     if i=='symbolizers':
         for k,l in j.iteritems():
-            # Loop to get symbolizer name
-            uniqueProperties = []
-            # Loop to get symbolizers properties
-            for m, n in l.iteritems():
-                propertyList =[]
-                for o,p in n.iteritems():
-                    propertyList.append(str(o))
-                    # Retrieve unique keys for unique fields of each symbolizers properties
-                    uniqueProperties.extend(propertyList)
-            #Common columns per symbolizers
-            # Get in unique objet, the symbolizer name, unique properties for building table and dictionnary for each symbolisers
-            symbolizersHeaders.append((getCamelCase (k + "-"+ i, '-'), list(set(uniqueProperties)), l))
+                # Exclude map object
+                if k != 'map':
+                    # Loop to get symbolizer name
+                    uniqueProperties = []
+                    # Loop to get symbolizers properties
+                    for m, n in l.iteritems():
+                        propertyList =[]
+                        for o,p in n.iteritems():
+                            propertyList.append(str(o))
+                            # Retrieve unique keys for unique fields of each symbolizers properties
+                            uniqueProperties.extend(propertyList)
+                    #Common columns per symbolizers
+                    # Get in unique objet, the symbolizer name, unique properties for building table and dictionnary for each symbolisers
+                    symbolizersHeaders.append((getCamelCase (k + "-"+ i, '-'), list(set(uniqueProperties)), l))
 
 
 
